@@ -245,7 +245,7 @@ def train_and_evaluate(model_class, env_name):
                             , **model_kwargs)
         mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=5)
         print(f"当前不训练-{env_name} - {model_class.__name__} - 期望: {mean_reward:.1f}", flush=True)    
-        total_steps = 500000       # 开始训练
+        total_steps = 2500000        # 开始训练250万步
         model.learn(total_timesteps=total_steps
                     , progress_bar=True, tb_log_name=f"{env_name}_{model_class.__name__}"
                     , callback=callbacks)
